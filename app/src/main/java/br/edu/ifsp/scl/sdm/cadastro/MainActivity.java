@@ -44,32 +44,26 @@ public class MainActivity extends AppCompatActivity {
         rbSexo = findViewById(R.id.rbMasculino);
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
-        btnLimpar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                edtNomeCompleto.setText("");
-                edtTelefone.setText("");
-                edtEmail.setText("");
-                edtCidade.setText("");
-                ckIngressaLista.setChecked(false);
-                rbSexo.setChecked(true);
-            }
+        btnLimpar.setOnClickListener(view -> {
+            edtNomeCompleto.setText("");
+            edtTelefone.setText("");
+            edtEmail.setText("");
+            edtCidade.setText("");
+            ckIngressaLista.setChecked(false);
+            rbSexo.setChecked(true);
         });
 
-        btnSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Formulario form = new Formulario();
-                form.setNomeCompleto(edtNomeCompleto.getText().toString());
-                form.setTelefone(edtTelefone.getText().toString());
-                form.setEmail(edtEmail.getText().toString());
-                form.setCidade(edtCidade.getText().toString());
-                form.setUF(((String)((TextView) spUF.getSelectedView()).getText()));
-                form.setIntegraEmail(ckIngressaLista.isChecked()?true:false);
-                form.setSexo(rbSexo.isChecked()?"Masculino":"Feminino");
+        btnSalvar.setOnClickListener(view -> {
+            Formulario form = new Formulario();
+            form.setNomeCompleto(edtNomeCompleto.getText().toString());
+            form.setTelefone(edtTelefone.getText().toString());
+            form.setEmail(edtEmail.getText().toString());
+            form.setCidade(edtCidade.getText().toString());
+            form.setUF(((String)((TextView) spUF.getSelectedView()).getText()));
+            form.setIntegraEmail(ckIngressaLista.isChecked()?true:false);
+            form.setSexo(rbSexo.isChecked()?"Masculino":"Feminino");
 
-                Toast.makeText(getApplicationContext(), form.toString(), Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(getApplicationContext(), form.toString(), Toast.LENGTH_SHORT).show();
         });
 
     }
