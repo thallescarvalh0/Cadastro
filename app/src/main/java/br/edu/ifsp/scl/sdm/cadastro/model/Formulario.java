@@ -1,5 +1,7 @@
 package br.edu.ifsp.scl.sdm.cadastro.model;
 
+import androidx.annotation.NonNull;
+
 public class Formulario {
     String NomeCompleto;
     String Email;
@@ -13,6 +15,7 @@ public class Formulario {
     }
 
 
+    @NonNull
     @Override
     public String toString() {
         return "Formulario {" +

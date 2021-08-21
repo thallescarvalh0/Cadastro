@@ -3,14 +3,10 @@ package br.edu.ifsp.scl.sdm.cadastro;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             form.setEmail(edtEmail.getText().toString());
             form.setCidade(edtCidade.getText().toString());
             form.setUF(((String)((TextView) spUF.getSelectedView()).getText()));
-            form.setIntegraEmail(ckIngressaLista.isChecked()?true:false);
+            form.setIntegraEmail(ckIngressaLista.isChecked());
             form.setSexo(rbSexo.isChecked()?"Masculino":"Feminino");
 
             Toast.makeText(getApplicationContext(), form.toString(), Toast.LENGTH_SHORT).show();
