@@ -9,10 +9,13 @@ public class Formulario {
     String UF;
     Boolean IntegraEmail;
 
+    public Formulario() {
+    }
+
 
     @Override
     public String toString() {
-        return "Formulario{" +
+        return "Formulario {" +
                 "NomeCompleto='" + NomeCompleto + '\'' +
                 ", Email='" + Email + '\'' +
                 ", Sexo='" + Sexo + '\'' +
@@ -23,5 +26,32 @@ public class Formulario {
                 '}';
     }
 
+    public void setNomeCompleto(String nomeCompleto) {
+        NomeCompleto = nomeCompleto;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public void setSexo(String sexo) {
+        Sexo = sexo;
+    }
+
+    public void setTelefone(String telefone) {
+        Telefone = telefone;
+    }
+
+    public void setCidade(String cidade) {
+        Cidade = cidade;
+    }
+
+    public void setUF(String UF) {
+        this.UF = UF;
+    }
+
+    public void setIntegraEmail(Boolean integraEmail) {
+        IntegraEmail = integraEmail;
+    }
 }
 

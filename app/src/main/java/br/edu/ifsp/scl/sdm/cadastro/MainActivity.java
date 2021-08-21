@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.edu.ifsp.scl.sdm.cadastro.model.Formulario;
 
@@ -38,26 +39,36 @@ public class MainActivity extends AppCompatActivity {
         edtTelefone = findViewById(R.id.edtTelefone);
         edtEmail = findViewById(R.id.edtEmail);
         edtCidade =  findViewById(R.id.edtCidade);
-        ckIngressaLista = findViewById(R.id.ckIngressaLista);
         spUF =  findViewById(R.id.spinUF);
+        ckIngressaLista = findViewById(R.id.ckIngressaLista);
         rbSexo = findViewById(R.id.rbMasculino);
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
-        //((TextView) spUF.getSelectedItem()).getText();
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Formulario form = new Formulario();
-                
-
-
+                edtNomeCompleto.setText("");
+                edtTelefone.setText("");
+                edtEmail.setText("");
+                edtCidade.setText("");
+                ckIngressaLista.setChecked(false);
+                rbSexo.setChecked(true);
             }
         });
 
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Formulario form = new Formulario();
+                form.setNomeCompleto(edtNomeCompleto.getText().toString());
+                form.setTelefone(edtTelefone.getText().toString());
+                form.setEmail(edtEmail.getText().toString());
+                form.setCidade(edtCidade.getText().toString());
+                form.setUF(((String)((TextView) spUF.getSelectedView()).getText()));
+                form.setIntegraEmail(ckIngressaLista.isChecked()?true:false);
+                form.setSexo(rbSexo.isChecked()?"Masculino":"Feminino");
 
+                Toast.makeText(getApplicationContext(), form.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
